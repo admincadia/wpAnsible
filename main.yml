@@ -1,0 +1,24 @@
+---
+
+- hosts: webserver
+  remote_user: "{{ ssh_user }}"
+  become: True
+  serial: "100%"
+  roles:
+    - role: apache2_install
+    - role: apache2_config
+    - role: apache2_run
+    - role: php_install
+    - role: php_run
+    - role: wp_install
+    - role: wp_config
+
+- hosts: dbserver 
+  remote_user: "{{ ssh_user }}"
+  become: True
+  serial: "100%"
+  roles:
+    - role: mariadb_install
+    - role: mariadb_run
+    - role: mariadb_create
+ 

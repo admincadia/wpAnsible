@@ -1,0 +1,11 @@
+---
+
+- name: Acualizar todos los paquetes a la última versión
+  apt:
+    name: "*"
+    state: latest
+  become: yes
+
+- name: Instalar MongoDB
+  apt: name=mongodb-org state=latest
+  become: yes

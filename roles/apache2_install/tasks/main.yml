@@ -1,0 +1,9 @@
+---
+- name: Instalar Apache
+  yum: name=apache2 state=latest
+  become: yes
+
+- name: Añadir una línea de comprobación con LineInFile al html de Apache
+  lineinfile: dest=/var/www/html/index.html line="<h2>Línea de LineInFile</h2>" insertafter="Hola calavera"
+  become: yes
+

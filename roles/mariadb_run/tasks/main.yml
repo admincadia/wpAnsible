@@ -1,0 +1,7 @@
+---
+
+- name: Arrancar MongoDB
+  service:
+          name: mongod
+          state: started
+  become: yes
