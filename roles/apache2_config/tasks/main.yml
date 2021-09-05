@@ -1,0 +1,10 @@
+- name: Permitiendo http y https a través del firewall
+  ansible.builtin.iptables:
+    chain: INPUT
+    protocol: tcp
+    destination_ports:
+      - "80"
+      - "443"
+    jump: ACCEPT
+
+

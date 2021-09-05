@@ -1,0 +1,6 @@
+- name: Arrancar php
+  service:
+    name: php-gd
+    state: started
+    enabled: yes
+  become: yes
