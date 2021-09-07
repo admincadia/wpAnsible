@@ -1,4 +1,4 @@
-- name: Permitiendo http y https a través del firewall
+- name: Permitiendo http y https a través del firewall (copiado de docs.ansible)
   ansible.builtin.iptables:
     chain: INPUT
     protocol: tcp
@@ -6,5 +6,22 @@
       - "80"
       - "443"
     jump: ACCEPT
+
+- name: Habilitando el módulo rewrite de Apache (copiado de docs.ansible)
+  community.general.apache2_module:
+    state: present
+    name: rewrite
+
+- name: Copia de nueva config de Apache para WP
+  template:
+    src: wordpress.conf.j2
+    dest: "/etc/apache2/conf-available/wordpress.conf"
+    owner: "{{ ssh_user }}"
+    group: "{{ ssh_user }}"
+
+- name: Habilitando el módulo rewrite de Apache (copiado de docs.ansible)
+  community.general.apache2_module:
+    state: present
+    name: rewrite
 
 
