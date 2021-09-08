@@ -1,0 +1,14 @@
+- name: Descarga de tar.gz con la última versión de WP y lo extrae directamente al directorio del sitio web
+  ansible.builtin.unarchive:
+    src: https://es.wordpress.org/latest-es_ES.tar.gz
+    dest: /var/www/html
+    remote_src: yes
+
+- name: Se cambia la propiedad del sitio web '/var/www/html/wordpress' al demonio de apache
+  ansible.builtin.file:
+    path: /var/www/html/wordpress
+    state: directory
+    recurse: yes
+    owner: www-data
+    group: www-data
+

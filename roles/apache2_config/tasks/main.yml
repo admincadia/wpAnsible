@@ -19,9 +19,15 @@
     owner: "{{ ssh_user }}"
     group: "{{ ssh_user }}"
 
-- name: Habilitando el módulo rewrite de Apache (copiado de docs.ansible)
-  community.general.apache2_module:
-    state: present
-    name: rewrite
+- name: Activar nueva config de Apache para WP (el 'sudo a2enconf wordpress')
+  template:
+    src: wordpress.conf.j2
+    dest: "/etc/apache2/conf-enabled/wordpress.conf"
+    owner: "{{ ssh_user }}"
+    group: "{{ ssh_user }}"
 
-
+-name: Rebotamos Apache para aplicar los cambios
+  service:
+          name: apache2
+          state: restarted
+  become: yes

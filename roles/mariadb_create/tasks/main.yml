@@ -1,0 +1,24 @@
+- name: Primero se eliminan todas las cuentas anónimas
+  community.mysql.mysql_user:
+    name: ''
+    host_all: yes
+    state: absent
+
+- name: Crear la base de datos de WP
+  community.mysql.mysql_db:
+    name: wordpress
+    state: present
+
+- name: Se crea el usuario con clave, con privilegios a la bbdd 'wordpress'  y opción GRANT
+  community.mysql.mysql_user:
+    state: present
+    name: wpadmin
+    password: 1234
+    priv:
+      'wordpress.*': 'ALL,GRANT'
+
+- name: Reinicio de mariadb
+  service:
+      name: mariadb
+      state: restarted
+  become: yes

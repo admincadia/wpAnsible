@@ -1,11 +1,11 @@
----
-
-- name: Acualizar todos los paquetes a la última versión
-  apt:
-    name: "*"
-    state: latest
+- name: Instalar mariaDB
+  apt: 
+      name: mariadb-server 
+      state: latest
   become: yes
 
-- name: Instalar MongoDB
-  apt: name=mongodb-org state=latest
+- name: Iniciar mariadb
+  service: 
+        name: mariadb
+        state: started
   become: yes
