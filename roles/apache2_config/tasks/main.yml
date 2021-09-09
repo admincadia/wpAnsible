@@ -26,7 +26,7 @@
     owner: "{{ ssh_user }}"
     group: "{{ ssh_user }}"
 
--name: Rebotamos Apache para aplicar los cambios
+- name: Rebotamos Apache para aplicar los cambios
   service:
           name: apache2
           state: restarted

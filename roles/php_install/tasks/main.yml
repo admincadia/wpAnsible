@@ -1,4 +1,5 @@
---
+---
+
 - name: Añadir una fuente nueva para el php7.4
   lineinfile: dest=/etc/apt/sources.list.d/php-sury.org.list line="deb http://packages.sury.org/php/ buster main"
   become: yes

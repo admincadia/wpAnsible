@@ -11,7 +11,6 @@
     - role: php_install
     - role: php_run
     - role: wp_install
-    - role: wp_config
 
 - hosts: dbserver 
   remote_user: "{{ ssh_user }}"
@@ -21,4 +20,4 @@
     - role: mariadb_install
     - role: mariadb_run
     - role: mariadb_create
- 
+

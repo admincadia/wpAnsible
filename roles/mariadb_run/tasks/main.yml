@@ -1,7 +1,7 @@
 ---
 
-- name: Arrancar MongoDB
+- name: Arrancar MariaDB
   service:
-          name: mongod
+          name: mariadb
           state: started
   become: yes
