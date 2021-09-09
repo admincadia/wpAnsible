@@ -1,6 +1,20 @@
+---
+
 - name: Instalar mariaDB
   apt: 
       name: mariadb-server 
+      state: latest
+  become: yes
+
+- name: Instalar el intérprete de Python
+  apt: 
+      name: python2.7
+      state: latest
+  become: yes
+    
+- name: Instalar conector python-mysql
+  pip: 
+      name: pymysql 
       state: latest
   become: yes
 

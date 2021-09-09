@@ -2,9 +2,7 @@
   ansible.builtin.iptables:
     chain: INPUT
     protocol: tcp
-    destination_ports:
-      - "80"
-      - "443"
+    destination_port: '80'
     jump: ACCEPT
 
 - name: Habilitando el módulo rewrite de Apache (copiado de docs.ansible)
