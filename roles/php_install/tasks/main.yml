@@ -1,13 +1,22 @@
 ---
 
-- name: Añadir una fuente nueva para el php7.4
-  lineinfile: dest=/etc/apt/sources.list.d/php-sury.org.list line="deb http://packages.sury.org/php/ buster main"
+- name: Añadir una fuente nueva para el php7.4 (sacado de los docs de Ansible)
+  ansible.builtin.apt_repository:
+    repo: deb http://packages.sury.org/php/ buster main
+    state: present
   become: yes
 
 - name: Añadir key de sury.org
   ansible.builtin.apt_key:
     url: https://packages.sury.org/php/apt.gpg
     state: present
+  become: yes
+
+- name: Hacer un 'apt update' para actualizar los repos (de los docs de Ansible)
+  apt:
+    name: "*"
+    state: latest
+  become: yes
 
 - name: Instalar PHP meta
   apt: 

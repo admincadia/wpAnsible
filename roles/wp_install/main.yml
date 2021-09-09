@@ -3,6 +3,7 @@
     src: https://es.wordpress.org/latest-es_ES.tar.gz
     dest: /var/www/html
     remote_src: yes
+  become: yes
 
 - name: Se cambia la propiedad del sitio web '/var/www/html/wordpress' al demonio de apache
   ansible.builtin.file:
@@ -11,4 +12,5 @@
     recurse: yes
     owner: www-data
     group: www-data
+  become: yes
 
