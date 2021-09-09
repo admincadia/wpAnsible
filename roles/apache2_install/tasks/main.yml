@@ -1,6 +1,8 @@
 ---
 - name: Instalar Apache
-  yum: name=apache2 state=latest
+  apt:
+    name: apache2
+    state: latest
   become: yes
 
 - name: Añadir una línea de comprobación con LineInFile al html de Apache
