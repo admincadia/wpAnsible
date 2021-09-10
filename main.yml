@@ -19,5 +19,6 @@
   roles:
     - role: mariadb_install
     - role: mariadb_run
+    - role: mariadb_preconfig
     - role: mariadb_create
 

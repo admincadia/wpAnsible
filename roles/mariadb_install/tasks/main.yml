@@ -6,28 +6,6 @@
       state: latest
   become: yes
 
-- name: Instalar el intérprete de Python v 2.7
-  apt: 
-      name: python2.7
-      state: latest
-  become: yes
-
-- name: Instalar el intérprete de Python v 3
-  apt: 
-      name: python3
-      state: latest
-  become: yes
-
-- name: Instalar python setuptools
-  pip: 
-      name: setuptools
-  become: yes
-   
-- name: Instalar conector python-mysql
-  pip: 
-      name: pymysql 
-  become: yes
-
 - name: Iniciar mariadb
   service: 
         name: mariadb

@@ -1,3 +1,16 @@
+---
+
+- name: Set root user password
+  mysql_user:
+      name: root
+      host: localhost
+      password: ""
+        #check_implicit_admin: yes
+        #login_user: 
+        #login_password:
+      state: present
+
+
 - name: Primero se eliminan todas las cuentas anónimas
   community.mysql.mysql_user:
     name: ''
@@ -17,8 +30,3 @@
     priv:
       'wordpress.*': 'ALL,GRANT'
 
-- name: Reinicio de mariadb
-  service:
-      name: mariadb
-      state: restarted
-  become: yes

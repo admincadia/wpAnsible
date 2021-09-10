@@ -1,0 +1,25 @@
+---
+
+- name: Instalación de módulo python venv
+  apt:
+      name: python3-venv
+      state: latest
+  become: yes
+
+- name: Instalación de módulo instalador de paquetes de python pip
+  apt:
+      name: python3-pip
+      state: latest
+  become: yes
+
+- name: Instalación con pit de las setuptools de python
+  pip:
+      name: setuptools
+  become: yes
+
+- name: Instalar con pip el conector python-mysql
+  pip: 
+      name: pymysql 
+      state: latest
+  become: yes
+
