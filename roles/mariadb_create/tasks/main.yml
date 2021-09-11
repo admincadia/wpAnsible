@@ -1,16 +1,17 @@
 ---
+
 - name: Copiar fichero my.cnf con credenciales de root
   template:
-  src: templates/my.cnf.j2
-  dest: /etc/mysql/my.cnf
-  owner: root
-  mode: 0600
+      src: templates/my.cnf.j2
+      dest: /etc/mysql/my.cnf
+      owner: root
+      mode: 0600
 
 - name: Set root user password
   community.mysql.mysql_user:
       name: root
       host: localhost
-      password: 1234
+      password: '1243'
       state: present
 
 - name: Eliminando las bbdd de pruebas de mysql
